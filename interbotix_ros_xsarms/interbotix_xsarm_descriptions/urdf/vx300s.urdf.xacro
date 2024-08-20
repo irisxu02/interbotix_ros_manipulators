@@ -688,7 +688,7 @@
           <dynamics
             friction="0.1"
             damping="0.1"/>
-          <xacro:if value="${hardware_type != 'gz_classic'}">
+          <xacro:if value="${hardware_type != 'gz_classic' and hardware_type != 'gz_sim' and hardware_type != 'gz_sim'}">
             <mimic
               joint="left_finger"
               multiplier="-1"
@@ -766,7 +766,7 @@
   <xacro:include filename="$(find interbotix_xsarm_descriptions)/urdf/control.urdf.xacro"/>
   <xacro:include filename="$(find interbotix_xsarm_descriptions)/urdf/gazebo_configs.urdf.xacro"/>
 
-  <xacro:if value="${hardware_type == 'gz_classic'}">
+  <xacro:if value="${hardware_type == 'gz_classic' or hardware_type == 'gz_sim' or hardware_type == 'gz_sim'}">
     <xacro:gazebo_configs/>
   </xacro:if>
 

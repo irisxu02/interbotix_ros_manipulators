@@ -177,7 +177,9 @@ def generate_launch_description():
         )
     )
     declared_arguments.extend(
-        declare_interbotix_xsarm_robot_description_launch_arguments(),
+        declare_interbotix_xsarm_robot_description_launch_arguments(
+            hardware_type='gz_sim',
+        )
     )
 
     return LaunchDescription(declared_arguments + [OpaqueFunction(function=launch_setup)])
