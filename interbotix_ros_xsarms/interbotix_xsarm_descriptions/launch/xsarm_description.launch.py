@@ -141,7 +141,7 @@ def generate_launch_description():
     declared_arguments.append(
         DeclareLaunchArgument(
             'use_joint_pub',
-            default_value='false',
+            default_value='true',
             choices=('true', 'false'),
             description='launches the joint_state_publisher node.',
         )
