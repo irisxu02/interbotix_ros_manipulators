@@ -141,7 +141,7 @@ def generate_launch_description():
     declared_arguments.append(
         DeclareLaunchArgument(
             'use_joint_pub',
-            default_value='true',
+            default_value='false',
             choices=('true', 'false'),
             description='launches the joint_state_publisher node.',
         )
@@ -167,18 +167,23 @@ def generate_launch_description():
     )
     declared_arguments.append(
         DeclareLaunchArgument(
-            'use_sim_time',
-            default_value='false',
-            choices=('true', 'false'),
+            'hardware_type',
+            choices=(
+                'actual',
+                'fake',
+                'gz_classic',
+                'gz_sim',
+            ),
+            default_value='gz_sim',
             description=(
-                'tells ROS nodes asking for time to get the Gazebo-published simulation time, '
-                'published over the ROS topic /clock.'
-            )
+                'configures the `robot_description` to use the actual hardware, fake '
+                'hardware, or hardware simulated in Gazebo.'
+            ),
         )
     )
     declared_arguments.extend(
         declare_interbotix_xsarm_robot_description_launch_arguments(
-            hardware_type='gz_sim',
+            hardware_type=LaunchConfiguration('hardware_type'),
         )
     )
 

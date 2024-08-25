@@ -24,7 +24,7 @@
         <plugin>gazebo_ros2_control/GazeboSystem</plugin>
       </xacro:if>
 
-      <!-- If simulating the robot in Gazebo Ignition -->
+      <!-- If simulating the robot in Gazebo Sim -->
       <xacro:if value="${hardware_type == 'gz_sim'}">
         <plugin>ign_ros2_control/IgnitionSystem</plugin>
       </xacro:if>
