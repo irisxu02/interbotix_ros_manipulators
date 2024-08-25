@@ -99,7 +99,7 @@ def launch_setup(context, *args, **kwargs):
     )
 
     # Set GAZEBO_MODEL_DATABASE_URI to empty string to prevent Gazebo from downloading models
-    gz_model_uri_env_var = SetEnvironmentVariable(
+    gz_model_database_env_var = SetEnvironmentVariable(
         name='GAZEBO_MODEL_DATABASE_URI',
         value=['']
     )
@@ -225,6 +225,7 @@ def launch_setup(context, *args, **kwargs):
     return [
         gz_resource_path_env_var,
         gz_model_uri_env_var,
+        gz_model_database_env_var,
         gazebo_launch_include,
         spawn_robot_node,
         load_joint_state_broadcaster_event,
